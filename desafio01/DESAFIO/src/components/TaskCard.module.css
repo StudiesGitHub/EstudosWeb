@@ -1,0 +1,51 @@
+.taskCard {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background: var(--gray-400);
+    border-radius: 8px;
+    width: 46rem;
+
+}
+
+.taskCard button {
+    background: transparent;
+    border: 0;
+    color: var(--gray-300);
+    line-height: 0;
+    padding: 0;
+    display: flex;
+    border-radius: 2px;
+    height: 14px;
+}
+
+.taskCard button:hover {
+    color: var(--blue);
+}
+
+.taskCheckBoxUntoggled {
+    border: solid 2px var(--blue);
+    height: 12px;
+    min-width: 12px;
+    border-radius: 50%;
+}
+
+.taskCheckBoxToggled {
+    background: var(--purple-dark);
+    height: 12px;
+    min-width: 12px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.cardText {
+    text-decoration: none;
+}
+
+.cardTextCrossed {
+    text-decoration: line-through;
+}
