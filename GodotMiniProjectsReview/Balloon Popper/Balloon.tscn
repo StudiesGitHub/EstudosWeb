@@ -1,20 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://5lcrl6ujb7mf"]
+[gd_scene load_steps=5 format=3 uid="uid://dvybft3i6o4lw"]
 
-[ext_resource type="Script" path="res://Balloon Popper/Balloon.gd" id="1_24rpa"]
-[ext_resource type="Material" uid="uid://brt5xiu0n2l5e" path="res://Balloon Popper/Balloon.tres" id="2_s1son"]
+[ext_resource type="Script" path="res://Balloon Popper/Balloon.gd" id="1_sdfpy"]
+[ext_resource type="Material" uid="uid://brt5xiu0n2l5e" path="res://Balloon Popper/Balloon.tres" id="2_m7fxe"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_58yoh"]
+[sub_resource type="SphereMesh" id="SphereMesh_j42wy"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_3tbec"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_tb5ya"]
 
 [node name="Balloon" type="Area3D"]
-script = ExtResource("1_24rpa")
+script = ExtResource("1_sdfpy")
 
-[node name="Model" type="MeshInstance3D" parent="."]
-material_override = ExtResource("2_s1son")
-mesh = SubResource("SphereMesh_58yoh")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_m7fxe")
+mesh = SubResource("SphereMesh_j42wy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_3tbec")
+shape = SubResource("SphereShape3D_tb5ya")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

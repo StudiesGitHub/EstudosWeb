@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://b32758f16imoj"]
+
+[ext_resource type="Script" path="res://Physics/Player.gd" id="1_clfej"]
+[ext_resource type="Texture2D" uid="uid://1bgsoti8iur0" path="res://Physics/PhysicsCharacter.png" id="1_pnba3"]
+[ext_resource type="Texture2D" uid="uid://bstuq6l714lv0" path="res://Physics/Crate.png" id="2_kqv4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf78e"]
+size = Vector2(18, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0t74g"]
+size = Vector2(18, 18)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+linear_damp = 3.0
+script = ExtResource("1_clfej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_rf78e")
+
+[node name="Sprite" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_pnba3")
+
+[node name="Crate" type="RigidBody2D" parent="."]
+mass = 5.0
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crate"]
+position = Vector2(-60, 0)
+shape = SubResource("RectangleShape2D_0t74g")
+
+[node name="Crate" type="Sprite2D" parent="Crate"]
+position = Vector2(-60, 0)
+texture = ExtResource("2_kqv4y")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
