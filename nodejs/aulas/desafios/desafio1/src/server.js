@@ -2,6 +2,8 @@ import http from 'node:http'
 
 import { routes } from './routes.js'
 
+const tasks = []
+
 const server = http.createServer((req, res) => {
    const {method, url} = req
 
