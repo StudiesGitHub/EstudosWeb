@@ -1,4 +1,6 @@
-const tasks = []
+import { Database } from "./database.js"  
+
+const database = new Database()
 
 export const routes = [
     
@@ -6,6 +8,7 @@ export const routes = [
         method: 'GET',
         path: '/users',
         handler: (req, res) => {
+            const tasks = database.select('tasks')
 
             return res
             .setHeader('Content-type', 'application/json')
@@ -16,7 +19,7 @@ export const routes = [
         method: 'POST',
         path: '/users',
         handler: (req, res) => {
-            tasks.push({
+            const task = ({
                 id:1,
                 title:'Task1',
                 description:'Descricao1',
@@ -25,6 +28,7 @@ export const routes = [
                 updated:'22/01/2024'
                 
             })
+            database.insert('tasks', task)
 
             return res.end('Task criada com sucesso')
         }
