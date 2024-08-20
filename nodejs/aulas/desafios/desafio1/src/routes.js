@@ -1,5 +1,6 @@
 import { Database } from "./database.js"
 import { randomUUID } from 'node:crypto'  
+import { buildRoutePath } from './utils/build-route-path.js'
 
 const database = new Database()
 
@@ -7,7 +8,7 @@ export const routes = [
     
     {
         method: 'GET',
-        path: '/users',
+        path: buildRoutePath('/tasks'),
         handler: (req, res) => {
             const tasks = database.select('tasks')
 
@@ -18,7 +19,7 @@ export const routes = [
     },
     {
         method: 'POST',
-        path: '/users',
+        path: buildRoutePath('/tasks'),
         handler: (req, res) => {
             const task = ({
                 id:randomUUID(),
@@ -36,21 +37,25 @@ export const routes = [
     },
     {
         method: 'PUT',
-        path: '/users',
+        path: buildRoutePath('/tasks'),
         handler: (req, res) => {
             return res.end('Task atualizada com sucesso')
         }
     },
     {
         method: 'DELETE',
-        path: '/users',
+        path: buildRoutePath('/tasks/:id'),
         handler: (req, res) => {
-            return res.end('Task deleteda com sucesso')
+            const { id } = req.params
+
+            database.delete('tasks', id)
+
+            return res.writeHead(204).end()
         }
     },
     {
         method: 'PATCH',
-        path: '/users',
+        path: buildRoutePath('/tasks'),
         handler: (req, res) => {
             return res.end('Task modificada com sucesso')
         }
