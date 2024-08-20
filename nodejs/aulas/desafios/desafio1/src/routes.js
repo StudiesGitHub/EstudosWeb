@@ -1,4 +1,5 @@
-import { Database } from "./database.js"  
+import { Database } from "./database.js"
+import { randomUUID } from 'node:crypto'  
 
 const database = new Database()
 
@@ -20,7 +21,7 @@ export const routes = [
         path: '/users',
         handler: (req, res) => {
             const task = ({
-                id:1,
+                id:randomUUID(),
                 title:'Task1',
                 description:'Descricao1',
                 completed_at:'20/01/2024',
