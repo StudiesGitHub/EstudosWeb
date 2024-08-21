@@ -21,18 +21,19 @@ export const routes = [
         method: 'POST',
         path: buildRoutePath('/tasks'),
         handler: (req, res) => {
+            const { title, description, completed_at, created, updated } = req.body
+
             const task = ({
                 id:randomUUID(),
-                title:'Task1',
-                description:'Descricao1',
-                completed_at:'20/01/2024',
-                created:'21/01/2024',
-                updated:'22/01/2024'
-                
+                title,
+                description,
+                completed_at,
+                created,
+                updated                
             })
             database.insert('tasks', task)
 
-            return res.end('Task criada com sucesso')
+            return res.writeHead(201).end()
         }
     },
     {
