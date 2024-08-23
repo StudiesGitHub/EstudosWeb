@@ -11,7 +11,9 @@
   "license": "ISC",
   "devDependencies": {
     "tsx": "^4.17.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "@rocketseat/eslint-config": "^1.2.0",
+    "eslint": "^8.33.0"
   },
   "dependencies": {
     "fastify": "^4.28.1"
