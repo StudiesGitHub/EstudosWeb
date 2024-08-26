@@ -5,3 +5,7 @@ npm - fastify
 npm install tsx -D(o tsx transforma o arquivo js pra ts em ambiente de dev, faclitando os tests)
 npm i zod (validacao das informacoes, o .parse() ajuda muito)
 npm install knex sqlite3 (o sqlite3 é a opcao de db, existem outra com as quais o knex trabalha)
+
+antes de criar uma migration criat um knexfile.ts na raiz do projeto
+
+# para que o knex funcione em uma aplicacao com tsx, é necessario criar um seguinte script no packge.json "knex": "node --no-warnings --import tsx ./node_modules/knex/bin/cli.js"/ quando se criar um script, é necessario por -- no comando para o node entender que o parametro vai para o script, exemplo: npm run knex -- -h (knex, nesse caso, é um script feito manualmente na package.json)
