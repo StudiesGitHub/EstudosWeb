@@ -1,10 +1,13 @@
 import fastify from 'fastify'
 import { z } from 'zod'
+import { knex } from './database'
 
 const app = fastify()
 
-app.get('/meal', () => {
-  return 'Refeicoes listadas'
+app.get('/meal', async () => {
+  const tables = await knex('sqlite_schema').select('*')
+
+  return tables
 })
 
 app.post('/meal', () => {
