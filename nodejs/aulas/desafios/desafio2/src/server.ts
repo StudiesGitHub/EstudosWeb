@@ -1,4 +1,5 @@
 import fastify from 'fastify'
+import { z } from 'zod'
 
 const app = fastify()
 
@@ -7,6 +8,14 @@ app.get('/meal', () => {
 })
 
 app.post('/meal', () => {
+  const createTransactionBodySchema = z.object({
+    idUser: z.string(),
+    name: z.string(),
+    description: z.string(),
+    dateAndTime: z.string(),
+    onTheDiet: z.enum(['Yes', 'No']),
+  })
+
   const meal = {
     IdUser: '1',
     name: 'AO MOSSO',

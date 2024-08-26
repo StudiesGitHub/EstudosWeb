@@ -3,3 +3,5 @@ npm i -d type script
 npx tsc --init apra configurar o type script(entrar no tsconfig.json e trocar o ts para 2020 ou versao masi recente)
 npm - fastify
 npm install tsx -D(o tsx transforma o arquivo js pra ts em ambiente de dev, faclitando os tests)
+npm i zod (validacao das informacoes, o .parse() ajuda muito)
+npm install knex sqlite3 (o sqlite3 é a opcao de db, existem outra com as quais o knex trabalha)
